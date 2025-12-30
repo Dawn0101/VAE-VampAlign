@@ -79,7 +79,7 @@ python eval.py
 ---
 
 ### 2. CelebA 实验结果 (64x64 分辨率)
-在复杂人脸任务中，通过 **ResNet + KL Annealing**，模型克服了“平均脸”问题，实现了高质量重构。
+在复杂人脸任务中，通过 **ResNet + KL Annealing**，模型依旧克服了“平均脸”问题，重构质量一般，但后续的生成质量较好。
 
 #### 📸 重建效果可视化
 ![CelebA Reconstruction](./figures/celeba_combined_reconstruction.png)
@@ -90,7 +90,7 @@ python eval.py
 VampPrior 的核心在于学习数据集的“原型”。下图展示了模型自动学习到的 1000 个伪输入中的代表性样本：
 
 ![Pseudo-inputs](./figures/celeba_enhanced_generation.png)
-*这些“原型”已经具备了极高的人脸辨识度，证明了先验分布成功学习到了人脸流形的复杂结构。*
+> **说明**：这些“原型”已经具备了极高的人脸辨识度，证明了先验分布成功学习到了人脸流形的复杂结构。
 
 ---
 
