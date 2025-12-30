@@ -10,10 +10,16 @@ VAE-VampAlign/
 ├── data/                 # 数据加载相关
 │   └── data_loaders.py
 ├── figures/              # 训练结果图、生成样本图
-│   ├── celeba_kl_ratio.png
-│   ├── celeba_loss_curve.png
-│   ├── reconstruction.png
-│   └── vae_mnist_training_analysis.png
+│   ├── celeba_kl_ratio.png                   # KL 散度退火曲线（CelebA）
+│   ├── celeba_loss_curve.png                 # 总损失、重构损失、KL项随 epoch 变化
+│   ├── reconstruction.png                    # 原始图像 vs VAE 重建结果对比
+│   ├── vae_mnist_training_analysis.png       # MNIST 上的训练过程分析图（含 loss 曲线）
+│   ├── celeba_combined_reconstruction.png    # CelebA 多样性重建结果拼接图
+│   ├── celeba_enhanced_generation.png        # 使用 VampPrior 生成的高质量人脸样本
+│   ├── celeba_initial_generation.png         # 初始模型生成的人脸样本（对比用）
+│   ├── celeba_initial_reconstruction.png     # 初始模型的重建效果（对比用）
+│   ├── mnist_generation_comparison.png       # MNIST 生成样本对比（不同阶段或模型）
+│   └── mnist_loss_curve.png                  # MNIST 训练损失曲线
 ├── models/               # 模型定义
 │   ├── encoder.py        # 编码器（ResNet-based）
 │   ├── decoder.py        # 解码器（ResNet-based）
