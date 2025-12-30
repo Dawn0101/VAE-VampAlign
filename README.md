@@ -73,7 +73,7 @@ python eval.py
 | **Active Units (活跃维度)** | 14 / 40 | **34 / 40** |
 | **LPIPS (感知相似度)** | 0.0394 | **0.0372** |
 
-![MNIST Analysis](./figures/vae_mnist_training_analysis.png)
+![MNIST Analysis](./figures/mnist_loss_curve.png)
 *图：MNIST 训练曲线及重建对比*
 
 ---
@@ -81,22 +81,15 @@ python eval.py
 ### 2. CelebA 实验结果 (64x64 分辨率)
 在复杂人脸任务中，通过 **ResNet + KL Annealing**，模型克服了“平均脸”问题，实现了高质量重构。
 
-#### 📊 定量指标
-| 模型配置 | Active Units ↑ | LPIPS (感知距离) ↓ |
-| :--- | :---: | :---: |
-| 基线 (Conv VAE) | 238 / 256 | 0.3888 |
-| **改进 (ResNet + VampPrior)** | **256 / 256** | **0.2791** |
-
 #### 📸 重建效果可视化
-![CelebA Reconstruction](./figures/reconstruction.png)
-> **说明**：第一行为原始输入，第二行为模型重建结果。可以看到模型准确捕捉了性别、发型、肤色及光影细节。
-
+![CelebA Reconstruction](./figures/celeba_combined_reconstruction.png)
+> **说明**：左边为原始图像、中间为标准VAE、右边为VampVAE。（其实重建效果并不理想，后续也进行了分析）
 ---
 
 ### 3. 核心亮点：VampPrior 伪输入 (Pseudo-inputs)
 VampPrior 的核心在于学习数据集的“原型”。下图展示了模型自动学习到的 1000 个伪输入中的代表性样本：
 
-![Pseudo-inputs](./results/pseudo_inputs.png)
+![Pseudo-inputs](./figures/celeba_enhanced_generation.png.
 *这些“原型”已经具备了极高的人脸辨识度，证明了先验分布成功学习到了人脸流形的复杂结构。*
 
 ---
@@ -114,11 +107,4 @@ VampPrior 的核心在于学习数据集的“原型”。下图展示了模型�
 2.  **ResNet Backbone**: 引入残差连接，解决了深层 VAE 训练中的梯度消失和信息丢失问题。
 3.  **KL Annealing**: 线性增加 KL 权重，在“重建”与“生成”之间取得最佳平衡。
 4.  **Robustness**: 加入梯度裁剪，成功解决了高维隐空间（256 dim）训练中的 `NaN` 问题。
-
----
-
-## 📜 参考文献
-* Tomczak, J., & Welling, M. (2018). *VAE with a VampPrior*.
-* He, K., et al. (2016). *Deep Residual Learning for Image Recognition*.
-* Bowman, S., et al. (2016). *KL Annealing Strategy*.
 
