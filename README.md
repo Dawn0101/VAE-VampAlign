@@ -5,7 +5,7 @@
 ---
 
 ## 📁 项目目录结构
-
+```
 VAE-VampAlign/
 ├── data/                 # 数据加载相关
 │   └── data_loaders.py
@@ -23,7 +23,7 @@ VAE-VampAlign/
 │   ├── loss.py           # 损失函数计算
 │   ├── loss_curve_celebA.py
 │   └── loss_curve_mnist.py
-
+```
 
 ## 🔧 启动方式
 
