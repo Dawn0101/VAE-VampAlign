@@ -43,7 +43,7 @@ VAE-VampAlign/
 python train.py
 ```
 
-### 生成结果（定性评估）
+### 2.生成结果（定性评估）
 生成mnist图像样本
 
 ```
@@ -55,7 +55,7 @@ python mnist_generation.py
 python celebA_generation.py
 ```
 
-### 评估指标（定量评估）
+### 3.评估指标（定量评估）
 需要有训练好的模型权重，设置路径后运行
 ```
 python eval.py
@@ -89,7 +89,7 @@ python eval.py
 ### 3. 核心亮点：VampPrior 伪输入 (Pseudo-inputs)
 VampPrior 的核心在于学习数据集的“原型”。下图展示了模型自动学习到的 1000 个伪输入中的代表性样本：
 
-![Pseudo-inputs](./figures/celeba_enhanced_generation.png.
+![Pseudo-inputs](./figures/celeba_enhanced_generation.png)
 *这些“原型”已经具备了极高的人脸辨识度，证明了先验分布成功学习到了人脸流形的复杂结构。*
 
 ---
