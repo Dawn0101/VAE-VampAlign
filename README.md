@@ -20,6 +20,9 @@ VAE-VampAlign/
 │   ├── celeba_initial_reconstruction.png     # 初始模型的重建效果（对比用）
 │   ├── mnist_generation_comparison.png       # MNIST 生成样本对比（不同阶段或模型）
 │   └── mnist_loss_curve.png                  # MNIST 训练损失曲线
+├── papers/               
+│   ├── document.pdf      # 项目相关的数据记录
+│   └── GAN.pptx           # 使用 GAN 进行生成任务的结果展示 PPT
 ├── models/               # 模型定义
 │   ├── encoder.py        # 编码器（ResNet-based）
 │   ├── decoder.py        # 解码器（ResNet-based）
