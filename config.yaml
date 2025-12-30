@@ -1,0 +1,31 @@
+# config.yaml
+data:
+  celebA_data_path: "/data_hdd/lzc/datasets/celebA/"
+  mnist_data_path: "/data_hdd/lzc/datasets/mnist/"
+  name: "CelebA"  # 可选 "celebA" 或 "mnist"
+
+model:
+  use_vamp: false        # 关键开关：True 使用 VampPrior, False 使用标准 N(0,I)
+  num_pseudo_inputs: 1000 # K: 伪输入的数量 (仅当 use_vamp=True 时有效)
+  
+  input_size: 64        # 输入图像的高度和宽度（假设为正方形）
+  # latent_dim: 40        # z 的维度
+  latent_dim: 256      # z 的维度(尽可能保留多的细节信息)
+
+  celebA_channels: 3        # CelebA 图像的通道数
+  mnist_channels: 1           # 1 for MNIST
+
+
+train:
+  batch_size: 128
+  image_size: 64
+  num_workers: 0
+  epochs: 30
+  lr: 0.00001
+  
+  kl_weight: 1.0        # Beta-VAE 的 beta 参数，这里设为 1.0
+  log_interval: 100
+
+paths:
+  results_dir: "./results/celebA_non_vamp_256_1000//"
+  checkpoints_dir: "./checkpoints/celebA_non_vamp_256_1000/"
